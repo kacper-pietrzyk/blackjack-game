@@ -16,7 +16,10 @@
     color: $color-black;
     box-shadow: 0 0 20px 0 $color-dark;
     border-radius: 50%;
+    font-family: $font-family-default;
+    font-size: $font-size-m;
     transition: transform .3s;
+    outline: none;
 
     &:hover {
       cursor: pointer;
@@ -45,5 +48,10 @@
       border: 8px solid rgb(143, 36, 36);
       background-color: rgb(175, 106, 106);
     }
+  }
+
+  &__allIn {
+    font-size: $font-size-xl;
+    text-shadow: 0 0 10px $color-black
   }
 }
