@@ -1,0 +1,21 @@
+@import '../variables';
+
+.player {
+  display: flex;
+
+  &__cards {
+    height: 100px;
+    width: 150px;
+    background-color: red;
+  }
+
+  &__cardsValue {
+    align-self: center;
+    margin-left: 50px;
+    padding: 3px 20px;
+    background-color: rgb(20, 20, 20);
+    font-size: $font-size-m;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 $color-dark;
+  }
+}
