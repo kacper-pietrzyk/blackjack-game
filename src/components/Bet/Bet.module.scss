@@ -1,15 +1,9 @@
 @import '../variables';
 
-.betWrapper {
+.bet {
+
   display: flex;
   align-items: center;
-}
-
-.bet {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
 
   &__token {
     display: flex;
@@ -25,31 +19,29 @@
     font-size: $font-size-m;
   }
 
-  &__value {
-    align-self: center;
-    margin-top: 10px;
-    padding: 3px 20px;
-    background-color: rgb(20, 20, 20);
-    font-size: $font-size-m;
-    border-radius: 4px;
-    box-shadow: 0 0 10px 0 $color-dark;
-  }
-
   &__deal {
-    margin-left: 30px;
+    margin-left: 50px;
     padding: 6px 30px;
+    color: $color-main-light;
     background-color: rgb(20, 20, 20);
+    font-family: $font-family-default;
     font-size: $font-size-l;
+    border: none;
     border-radius: 4px;
     text-transform: uppercase;
     transition: .2s;
     box-shadow: 0 0 15px 0 $color-dark;
+    outline: none;
 
     &:hover {
       color: $color-white;
       cursor: pointer;
       transform: scale(1.1);
       box-shadow: 0 0 15px 0 $color-main-light;
+    }
+
+    &:active {
+      transform: scale(1)
     }
   }
 }
