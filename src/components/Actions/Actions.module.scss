@@ -16,6 +16,9 @@
     color: $color-black;
     box-shadow: 0 0 20px 0 $color-dark;
     border-radius: 50%;
+    font-family: $font-family-default;
+    font-size: $font-size-m;
+    text-transform: uppercase;
     transition: transform .3s;
 
     &:hover {
