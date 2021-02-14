@@ -17,7 +17,7 @@ html {
 body {
   background: $color-background-primary;
   background: radial-gradient(circle, $color-background-primary 0%, $color-background-secondary 100%);
-  color: $color-main-text;
+  color: $color-main-light;
   font-family: $font-family-default;
   font-size: 1.6rem;
 }
@@ -31,7 +31,13 @@ body {
 
 .main {
   flex-grow: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid red;
+
+
 }
 
 .footer {
