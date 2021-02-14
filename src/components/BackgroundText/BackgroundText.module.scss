@@ -1,11 +1,6 @@
 @import '../variables';
 
 .backgroundTextWrapper {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
