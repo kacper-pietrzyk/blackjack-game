@@ -5,18 +5,10 @@ import styles from './Tokens.module.scss';
 const Tokens = () => {
   return (
     <div className={styles.tokensWrapper}>
-      <div className={styles.tokensWrapper__token}>
-        <p>$5</p>
-      </div>
-      <div className={styles.tokensWrapper__token}>
-        <p>$10</p>
-      </div>
-      <div className={styles.tokensWrapper__token}>
-        <p>$25</p>
-      </div>
-      <div className={styles.tokensWrapper__token}>
-        <p>$100</p>
-      </div>
+      <button className={styles.tokensWrapper__token}>$5</button>
+      <button className={styles.tokensWrapper__token}>$10</button>
+      <button className={styles.tokensWrapper__token}>$25</button>
+      <button className={styles.tokensWrapper__token}>$100</button>
     </div>
   );
 }

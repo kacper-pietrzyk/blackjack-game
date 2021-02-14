@@ -11,7 +11,7 @@ const Bet = () => {
         </div>
         <p className={styles.bet__value}>$200</p>
       </div>
-      <p className={styles.bet__deal}>Deal</p>
+      <button className={styles.bet__deal}>Deal</button>
     </div>
   );
 }
