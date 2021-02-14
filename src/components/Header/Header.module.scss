@@ -1,0 +1,17 @@
+@import '../variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__round {
+    font-size: $font-size-l;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 10px $color-black;
+  }
+}
+
+.noSelect {
+  user-select: none;
+}
