@@ -1,0 +1,49 @@
+@import '../variables';
+
+.tokensWrapper {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+
+
+  &__token {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    color: $color-black;
+    box-shadow: 0 0 20px 0 $color-dark;
+    border-radius: 50%;
+    transition: transform .3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      font-weight: bold;
+    }
+
+    &:nth-child(1) {
+
+      border: 8px solid rgb(36, 54, 143);
+      background-color: rgb(106, 117, 175);
+    }
+
+    &:nth-child(2) {
+      border: 8px solid rgb(45, 143, 36);
+      background-color: rgb(112, 175, 106);
+    }
+
+    &:nth-child(3) {
+
+      border: 8px solid rgb(173, 150, 31);
+      background-color: rgb(175, 163, 106);
+    }
+
+    &:nth-child(4) {
+      border: 8px solid rgb(143, 36, 36);
+      background-color: rgb(175, 106, 106);
+    }
+  }
+}
