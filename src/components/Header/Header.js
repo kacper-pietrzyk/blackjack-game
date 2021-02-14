@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Header.module.scss';
 
-import Settings from '../Settings/Settings';
+import Settings from './Settings/Settings';
 
 const Header = () => {
   return (
