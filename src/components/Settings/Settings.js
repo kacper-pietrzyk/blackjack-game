@@ -1,11 +1,11 @@
 import React from 'react';
 
-import styles from './Options.module.scss';
+import styles from './Settings.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faFolderOpen, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
-const Options = () => {
+const Settings = () => {
   return (
     <div>
       <FontAwesomeIcon icon={faSave} className={styles.option} />
@@ -15,4 +15,4 @@ const Options = () => {
   );
 }
 
-export default Options;
+export default Settings;
