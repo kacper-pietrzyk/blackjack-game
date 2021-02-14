@@ -1,0 +1,13 @@
+@import '../../variables';
+
+.roundHistory {
+  padding: 8px;
+  transition: .3s;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-dark-hover;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
