@@ -9,13 +9,13 @@ import { AppContext } from '../AppContext/AppContext';
 
 const Footer = () => {
 
-  const { credit } = useContext(AppContext);
+  const { credit, isDealAccepted } = useContext(AppContext);
 
   return (
     <footer className={`${styles.footer} ${styles.noSelect}`}>
       <Stats />
-      <Tokens />
-      {/* <Actions /> */}
+      {!isDealAccepted && <Tokens />}
+      {isDealAccepted && <Actions />}
       <p>Credit: ${credit}</p>
     </footer>
   );
