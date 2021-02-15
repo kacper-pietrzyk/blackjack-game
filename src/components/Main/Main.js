@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import styles from './Main.module.scss';
 
 import BackgroundText from './BackgroundText/BackgroundText';
@@ -6,6 +6,7 @@ import PlayerCards from './PlayerCards/PlayerCards';
 import Bet from './Bet/Bet';
 
 import { AppContext } from '../AppContext/AppContext';
+import { getCards } from '../Root/getCards';
 
 const Main = () => {
 
@@ -27,39 +28,11 @@ const Main = () => {
       .catch(err => console.log(`${err}: Failed to get cards from API`));
   };
 
-  const getDealerCard = deckId => {
-    const oneCardUrl = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`;
-    fetch(oneCardUrl)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        }
-        throw Error(response.statusText);
-      })
-      .then(result => {
-        setDealerCards(result.cards);
-      })
-      .catch(err => console.log(`${err}: Failed to get card from API`));
-  }
-
-  const getUserCards = deckId => {
-    const twoCardsUrl = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`;
-    fetch(twoCardsUrl)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        }
-        throw Error(response.statusText);
-      })
-      .then(result => {
-        setUserCards(result.cards);
-      })
-      .catch(err => console.log(`${err}: Failed to get cards from API`));
-  }
-
   const getInitialCards = deckId => {
-    getUserCards(deckId);
-    getDealerCard(deckId);
+    // get user cards
+    getCards(deckId, 2, setUserCards);
+    // get dealer card
+    getCards(deckId, 1, setDealerCards);
   }
 
   return (
