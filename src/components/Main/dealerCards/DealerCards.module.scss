@@ -1,12 +1,13 @@
-@import '../variables';
+@import '../../variables';
 
-.player {
+.dealer {
   display: flex;
+
 
   &__cards {
     height: 100px;
     width: 150px;
-    background-color: red;
+    background-color: rgb(99, 27, 27);
   }
 
   &__cardsValue {

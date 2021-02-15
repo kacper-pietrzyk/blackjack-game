@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styles from './Tokens.module.scss';
 
-import { AppContext } from '../AppContext/AppContext';
+import { AppContext } from '../../AppContext/AppContext';
 
 const Tokens = () => {
 

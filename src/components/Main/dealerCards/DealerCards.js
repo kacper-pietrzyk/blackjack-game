@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styles from './DealerCards.module.scss';
 
-import { AppContext } from '../AppContext/AppContext';
+import { AppContext } from '../../AppContext/AppContext';
 
 const DealerCards = () => {
 

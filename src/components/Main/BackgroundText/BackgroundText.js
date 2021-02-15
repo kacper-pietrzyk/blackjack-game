@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styles from './BackgroundText.module.scss';
 
 const BackgroundText = () => {

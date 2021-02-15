@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../variables';
 
 .bet {
 
@@ -17,6 +17,7 @@
     border: 8px solid rgb(0, 0, 0);
     border-radius: 50%;
     font-size: $font-size-m;
+    font-weight: 700;
   }
 
   &__deal {
@@ -24,10 +25,10 @@
     padding: 6px 30px;
     color: $color-main-light;
     background-color: rgb(20, 20, 20);
-    font-family: $font-family-default;
-    font-size: $font-size-l;
     border: none;
     border-radius: 4px;
+    font-family: $font-family-default;
+    font-size: $font-size-l;
     text-transform: uppercase;
     transition: .2s;
     box-shadow: 0 0 15px 0 $color-dark;
