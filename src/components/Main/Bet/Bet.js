@@ -3,16 +3,24 @@ import styles from './Bet.module.scss';
 
 import { AppContext } from '../../AppContext/AppContext';
 
-const Bet = () => {
+const Bet = ({ getNewDeck, getCards }) => {
 
-  const { bet } = useContext(AppContext);
+  const { bet, isDealAccepted, setIsDealAccepted, roundNumber, isDeckLoaded } = useContext(AppContext);
+
+  const takeDeal = () => {
+    setIsDealAccepted(true);
+    if (roundNumber === 1) {
+      getNewDeck();
+    }
+  }
 
   return (
     <div className={styles.bet}>
+      <h2 className={styles.bet__header}>Bet:</h2>
       <div className={styles.bet__token}>
         <p>${bet}</p>
       </div>
-      <button className={styles.bet__deal}>Deal</button>
+      {!isDealAccepted && <button className={styles.bet__deal} onClick={takeDeal}>Deal</button>}
     </div>
   );
 }
