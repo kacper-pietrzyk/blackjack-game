@@ -1,0 +1,11 @@
+@import '../../variables';
+
+.card {
+  flex-basis: 120px;
+  display: flex;
+  margin-left: 20px;
+
+  &__img {
+    width: 100%;
+  }
+}
