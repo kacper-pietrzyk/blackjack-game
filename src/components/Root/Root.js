@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Root.module.scss';
 
-import { AppContext } from '../AppContext/AppContext';
-
 import Header from '../Header/Header';
-import DealerCards from '../dealerCards/DealerCards';
-import BackgroundText from '../BackgroundText/BackgroundText';
-import PlayerCards from '../PlayerCards/PlayerCards';
-import Bet from '../Bet/Bet';
-import Stats from '../Stats/Stats';
-import Tokens from '../Tokens/Tokens';
-import Actions from '../Actions/Actions';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
+
+import { AppContext } from '../AppContext/AppContext';
 
 const Root = () => {
 
@@ -19,6 +14,8 @@ const Root = () => {
   const [roundNumber, setRoundNumber] = useState(1);
   const [playerSum, setPlayerSum] = useState(0);
   const [dealerSum, setDealerSum] = useState(0);
+  const [shuffledCards, setshuffledCards] = useState(false);
+  const [dealAccepted, setDealAccepted] = useState(false);
 
   const state = {
     credit,
@@ -34,18 +31,8 @@ const Root = () => {
     <AppContext.Provider value={state}>
       <div className={styles.wrapper}>
         <Header />
-        <main className={styles.main}>
-          <DealerCards />
-          <BackgroundText />
-          <PlayerCards />
-          {bet !== 0 && <Bet />}
-        </main>
-        <footer className={`${styles.footer} ${styles.noSelect}`}>
-          <Stats />
-          <Tokens />
-          {/* <Actions /> */}
-          <p>Credit: ${credit}</p>
-        </footer>
+        <Main />
+        <Footer />
       </div>
     </AppContext.Provider>
   );
