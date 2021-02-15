@@ -9,22 +9,28 @@ import { AppContext } from '../AppContext/AppContext';
 
 const Root = () => {
 
-  const [credit, setCredit] = useState(1000);
   const [bet, setBet] = useState(0);
+  const [credit, setCredit] = useState(1000);
+  const [deck, setDeck] = useState();
   const [roundNumber, setRoundNumber] = useState(1);
-  const [playerSum, setPlayerSum] = useState(0);
-  const [dealerSum, setDealerSum] = useState(0);
-  const [shuffledCards, setshuffledCards] = useState(false);
-  const [dealAccepted, setDealAccepted] = useState(false);
+  const [userCards, setUserCards] = useState();
+  const [dealerCards, setDealerCards] = useState();
+  const [isDealAccepted, setIsDealAccepted] = useState(false);
 
   const state = {
     credit,
     setCredit,
     bet,
     setBet,
+    deck,
+    setDeck,
     roundNumber,
-    dealerSum,
-    playerSum
+    dealerCards,
+    setDealerCards,
+    userCards,
+    setUserCards,
+    isDealAccepted,
+    setIsDealAccepted,
   }
 
   return (
