@@ -2,12 +2,7 @@
 
 .player {
   display: flex;
-
-  &__cards {
-    height: 100px;
-    width: 150px;
-    background-color: rgb(65, 14, 14);
-  }
+  justify-content: center;
 
   &__cardsValue {
     align-self: center;
