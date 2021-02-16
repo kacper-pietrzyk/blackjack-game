@@ -2,15 +2,23 @@ import React, { useContext } from 'react';
 import styles from './Main.module.scss';
 
 import BackgroundText from './BackgroundText/BackgroundText';
-import PlayerCards from './PlayerCards/PlayerCards';
 import Bet from './Bet/Bet';
+import PlayerCards from './PlayerCards/PlayerCards';
+import ResultMessage from './ResultMessage/ResultMessage';
 
 import { AppContext } from '../AppContext/AppContext';
 import { getCards } from '../Root/getCards';
 
 const Main = () => {
 
-  const { bet, setDeck, dealerCards, userCards, setUserCards, setDealerCards } = useContext(AppContext);
+  const {
+    bet,
+    setDeck,
+    dealerCards, setDealerCards,
+    winner,
+    userCards, setUserCards,
+    userCardsSum, setUserCardsSum,
+    dealerCardsSum, setDealerCardsSum } = useContext(AppContext);
 
   const getNewDeck = () => {
     const newShuffledCardsUrl = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6';
@@ -30,16 +38,19 @@ const Main = () => {
 
   const getInitialCards = deckId => {
     // get user cards
-    getCards(deckId, 2, setUserCards);
+    getCards(deckId, 2, userCards, setUserCards, setUserCardsSum);
     // get dealer card
-    getCards(deckId, 1, setDealerCards);
+    getCards(deckId, 1, dealerCards, setDealerCards, setDealerCardsSum);
   }
 
   return (
     <main className={styles.main}>
-      {dealerCards && <PlayerCards cards={dealerCards} />}
+      {dealerCards && <PlayerCards cards={dealerCards} playerCardsSum={dealerCardsSum} />}
       <BackgroundText />
-      {userCards && <PlayerCards cards={userCards} />}
+      {winner === "dealer" && <ResultMessage winner="dealer" />}
+      {winner === "user" && <ResultMessage winner="user" />}
+      {winner === "draw" && <ResultMessage winner="draw" />}
+      {userCards && <PlayerCards cards={userCards} playerCardsSum={userCardsSum} />}
       {bet !== 0 && <Bet getNewDeck={getNewDeck} />}
     </main>
   );
