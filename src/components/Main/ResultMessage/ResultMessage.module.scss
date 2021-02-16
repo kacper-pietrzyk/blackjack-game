@@ -1,0 +1,51 @@
+@import '../../variables';
+
+.resultWrapper {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .9);
+  padding: 20px 70px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+
+  &__header {
+    font-size: $font-size-l;
+    text-transform: uppercase;
+
+    &_big {
+      font-size: $font-size-xxl;
+    }
+  }
+
+  &__nextRound {
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: $font-size-m;
+    font-family: $font-family-default;
+    background-color: rgba(0, 0, 0, .9);
+    color: $color-main-light;
+    transition: .3s;
+    outline: none;
+
+    &:hover {
+      color: $color-black;
+      background-color: $color-main-light;
+      cursor: pointer;
+    }
+  }
+}
