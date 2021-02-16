@@ -2,15 +2,29 @@
 
 .bet {
 
+  align-self: flex-end;
   display: flex;
   align-items: center;
+
+  &__tokenWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  &__header {
+    font-size: $font-size-l;
+    text-shadow: 3px 3px 10px $color-black;
+    text-transform: uppercase;
+  }
 
   &__token {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     color: $color-black;
     background-color: rgb(150, 150, 150);
     box-shadow: 0 0 20px 0 $color-dark;
@@ -21,7 +35,7 @@
   }
 
   &__deal {
-    margin-left: 50px;
+    margin: 35px 0 0 50px;
     padding: 6px 30px;
     color: $color-main-light;
     background-color: rgb(20, 20, 20);
