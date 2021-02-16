@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Root.module.scss';
 
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
 
 import { AppContext } from '../AppContext/AppContext';
 
@@ -11,26 +11,32 @@ const Root = () => {
 
   const [bet, setBet] = useState(0);
   const [credit, setCredit] = useState(1000);
+  const [dealerCards, setDealerCards] = useState();
+  const [dealerCardsSum, setDealerCardsSum] = useState();
   const [deck, setDeck] = useState();
+  const [isDealAccepted, setIsDealAccepted] = useState(false);
+  const [isDoubleDownAvailable, setIsDoubleDownAvailable] = useState(true);
+  const [isUserTurnFinished, setIsUserTurnFinished] = useState(false);
+  // const [isUserWinner, setIsUserWinner] = useState(false);
+  // const [isDealerWinner, setIsDealerWinner] = useState(false);
+  const [winner, setWinner] = useState('');
   const [roundNumber, setRoundNumber] = useState(1);
   const [userCards, setUserCards] = useState();
-  const [dealerCards, setDealerCards] = useState();
-  const [isDealAccepted, setIsDealAccepted] = useState(false);
+  const [userCardsSum, setUserCardsSum] = useState();
 
   const state = {
-    credit,
-    setCredit,
-    bet,
-    setBet,
-    deck,
-    setDeck,
+    bet, setBet,
+    credit, setCredit,
+    dealerCards, setDealerCards,
+    dealerCardsSum, setDealerCardsSum,
+    deck, setDeck,
+    isDealAccepted, setIsDealAccepted,
+    isDoubleDownAvailable, setIsDoubleDownAvailable,
+    isUserTurnFinished, setIsUserTurnFinished,
+    winner, setWinner,
     roundNumber,
-    dealerCards,
-    setDealerCards,
-    userCards,
-    setUserCards,
-    isDealAccepted,
-    setIsDealAccepted,
+    userCards, setUserCards,
+    userCardsSum, setUserCardsSum,
   }
 
   return (
