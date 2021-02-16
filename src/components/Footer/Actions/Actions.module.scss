@@ -20,6 +20,7 @@
     font-size: $font-size-m;
     text-transform: uppercase;
     transition: transform .3s;
+    outline: none;
 
     &:hover {
       cursor: pointer;
@@ -31,12 +32,22 @@
       border: 3px solid rgb(80, 80, 80);
       box-shadow: 0 0 8px 4px hsl(115, 40%, 44%);
       background-color: hsl(115, 30%, 70%);
+
+      &:hover {
+        box-shadow: 0 0 8px 10px hsl(115, 40%, 44%);
+        background-color: hsl(115, 40%, 70%);
+      }
     }
 
     &:nth-child(2) {
       border: 3px solid rgb(80, 80, 80);
       box-shadow: 0 0 8px 4px hsl(0, 54%, 47%);
       background-color: hsl(0, 30%, 63%);
+
+      &:hover {
+        box-shadow: 0 0 15px 10px hsl(0, 54%, 47%);
+        background-color: hsl(0, 40%, 63%);
+      }
     }
 
     &:nth-child(3) {
@@ -44,6 +55,11 @@
       border: 3px solid rgb(80, 80, 80);
       box-shadow: 0 0 8px 4px hsl(50, 76%, 48%);
       background-color: hsl(50, 42%, 56%);
+
+      &:hover {
+        box-shadow: 0 0 15px 8px hsl(50, 76%, 48%);
+        background-color: hsl(50, 50%, 56%);
+      }
     }
   }
 }
