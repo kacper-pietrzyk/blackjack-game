@@ -5,7 +5,9 @@ import { AppContext } from '../../AppContext/AppContext';
 
 const Tokens = () => {
 
-  const { credit, setCredit, bet, setBet } = useContext(AppContext);
+  const {
+    bet, setBet,
+    credit, setCredit, } = useContext(AppContext);
 
   const increaseBet = e => {
     const value = Number(e.target.value);
