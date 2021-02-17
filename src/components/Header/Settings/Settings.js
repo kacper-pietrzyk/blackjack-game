@@ -47,8 +47,8 @@ const Settings = ({ saveGame, loadGame }) => {
       <FontAwesomeIcon icon={faFolderOpen} className={styles.option} onClick={loadGame} title="Wczytaj grę" />
       <FontAwesomeIcon icon={faSyncAlt} className={styles.option} onClick={handleReset} title="Zresetuj grę" />
       {resetActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Reset...</h2></div>}
-      {saveActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Save...</h2></div>}
-      {loadActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Load...</h2></div>}
+      {saveActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Saving...</h2></div>}
+      {loadActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Loading...</h2></div>}
     </div>
   );
 }
