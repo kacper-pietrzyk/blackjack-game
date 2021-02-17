@@ -21,6 +21,8 @@ const Root = () => {
   const [roundNumber, setRoundNumber] = useState(1);
   const [userCards, setUserCards] = useState();
   const [userCardsSum, setUserCardsSum] = useState(0);
+  const [saveActive, setSaveActive] = useState(false);
+  const [loadActive, setLoadActive] = useState(false);
 
   const state = {
     bet, setBet,
@@ -35,12 +37,44 @@ const Root = () => {
     roundNumber, setRoundNumber,
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
+    saveActive, loadActive
+  }
+
+  const handleSave = () => {
+    localStorage.setItem("stateGame", JSON.stringify(state));
+    setSaveActive(true);
+
+    setTimeout(() => {
+      setSaveActive(false);
+    }, 1500);
+  }
+
+  const handleLoad = () => {
+    setLoadActive(true);
+
+    const gameToLoad = JSON.parse(localStorage.getItem("stateGame"));
+    setBet(gameToLoad.bet);
+    setCredit(gameToLoad.credit);
+    setDealerCards(gameToLoad.dealerCards);
+    setDealerCardsSum(gameToLoad.dealerCardsSum);
+    setDeck(gameToLoad.deck);
+    setIsDealAccepted(gameToLoad.isDealAccepted);
+    setIsDoubleDownAvailable(gameToLoad.isDoubleDownAvailable);
+    setIsUserTurnFinished(gameToLoad.isUserTurnFinished);
+    setWinner(gameToLoad.winner);
+    setRoundNumber(gameToLoad.roundNumber);
+    setUserCards(gameToLoad.userCards);
+    setUserCardsSum(gameToLoad.userCardsSum);
+
+    setTimeout(() => {
+      setLoadActive(false);
+    }, 1500);
   }
 
   return (
-    <AppContext.Provider value={state}>
+    <AppContext.Provider value={state} >
       <div className={styles.wrapper}>
-        <Header />
+        <Header saveGame={handleSave} loadGame={handleLoad} />
         <Main />
         <Footer />
       </div>
