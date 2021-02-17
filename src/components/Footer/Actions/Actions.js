@@ -20,8 +20,6 @@ const Actions = () => {
     userCards, setUserCards,
     userCardsSum, setUserCardsSum } = useContext(AppContext);
 
-
-
   const handleAction = e => {
     if (e.target.name === "Hit") {
       getCards(deck.deck_id, 1, userCards, setUserCards, setUserCardsSum);
