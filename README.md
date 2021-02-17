@@ -1,6 +1,5 @@
 # Blackjack game
 ## Description
-Page with frequently asked questions, which could be one of subpages. Questions and answers loaded by fetch API.
 Cards game 1-on-1 (player vs automated dealer) turn based blackjack game with 1000$ starting credit. 
 Game use 6 decks of cards which are getting from API. Cards are shuffled before the game begins. One game consist 5 rounds. The rules for blackjack can be read [here](https://pl.wikipedia.org/wiki/Blackjack).
 
