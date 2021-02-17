@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import styles from './Actions.module.scss';
 
 import { AppContext } from '../../AppContext/AppContext';
-
 import { getCards } from '../../Root/getCards';
 
 const Actions = () => {
@@ -13,14 +12,15 @@ const Actions = () => {
     dealerCards, setDealerCards,
     dealerCardsSum, setDealerCardsSum,
     deck,
-    userCards, setUserCards,
-    userCardsSum, setUserCardsSum,
     isDoubleDownAvailable,
+    isUserTurnFinished,
     setIsDoubleDownAvailable,
     setIsUserTurnFinished,
-    winner,
     setWinner,
-    isUserTurnFinished } = useContext(AppContext);
+    userCards, setUserCards,
+    userCardsSum, setUserCardsSum } = useContext(AppContext);
+
+
 
   const handleAction = e => {
     if (e.target.name === "Hit") {
@@ -28,8 +28,7 @@ const Actions = () => {
       setIsDoubleDownAvailable(false);
     } else if (e.target.name === "Stand") {
       setIsUserTurnFinished(true);
-      // dealerTurn();
-      while (dealerCardsSum < 17) {
+      if (dealerCardsSum < 17) {
         dealerTurn();
       }
     } else if (e.target.name === "DoubleDown") {
@@ -37,15 +36,12 @@ const Actions = () => {
       setBet(bet * 2);
       setCredit(credit - bet);
       setIsUserTurnFinished(true);
-      // dealerTurn();
-      while (dealerCardsSum < 17) {
+      if (dealerCardsSum < 17) {
         dealerTurn();
       }
     }
-    if (isUserTurnFinished) {
-      while (dealerCardsSum < 17) {
-        dealerTurn();
-      }
+    if (isUserTurnFinished && dealerCardsSum < 17) {
+      dealerTurn();
     }
   }
 
@@ -53,26 +49,24 @@ const Actions = () => {
 
     if (userCardsSum > 21) {
       setWinner("dealer");
-      console.log('wygrał dealer bo przekroczylem 21')
       setIsUserTurnFinished(true);
     }
     else if (isUserTurnFinished) {
       if (userCardsSum === dealerCardsSum) {
-        console.log('remis')
         setWinner("draw");
       } else if (userCardsSum <= 21 && userCardsSum > dealerCardsSum) {
-        console.log('wygralem bo mam wiecej ')
         setWinner("user");
       } else {
-        console.log('przegralem bo mam mniej')
         setWinner("dealer");
       }
     }
 
-  }, [userCardsSum, dealerCardsSum, setWinner, isUserTurnFinished, setIsUserTurnFinished]);
+  }, [dealerCardsSum, isUserTurnFinished, setIsUserTurnFinished, setWinner, userCardsSum]);
 
   const dealerTurn = () => {
-    getCards(deck.deck_id, 1, dealerCards, setDealerCards, setDealerCardsSum);
+    if (dealerCardsSum < 17) {
+      getCards(deck.deck_id, 1, dealerCards, setDealerCards, setDealerCardsSum);
+    }
   }
 
   return (
@@ -90,7 +84,7 @@ const Actions = () => {
             name="Stand" onClick={handleAction}>
             Stand
         </button>
-          {(isDoubleDownAvailable && credit >= bet) &&
+          {(isDoubleDownAvailable && (credit >= bet)) &&
             <button
               className={styles.actionsWrapper__action}
               name="DoubleDown"
