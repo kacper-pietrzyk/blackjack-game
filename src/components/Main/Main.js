@@ -12,12 +12,18 @@ import { getCards } from '../Root/getCards';
 const Main = () => {
 
   const {
-    bet,
+    bet, setBet,
     setDeck,
     dealerCards, setDealerCards,
+    setIsDealAccepted,
     winner,
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
+    setIsUserTurnFinished,
+    setIsDoubleDownAvailable,
+    setWinner,
+    setCredit, credit,
+    setRoundNumber, roundNumber,
     dealerCardsSum, setDealerCardsSum } = useContext(AppContext);
 
   const getNewDeck = () => {
@@ -43,15 +49,52 @@ const Main = () => {
     getCards(deckId, 1, dealerCards, setDealerCards, setDealerCardsSum);
   }
 
+  const handleNextRound = () => {
+    setCredit(credit + 1.5 * bet)
+    setBet(0);
+    setDealerCards(null);
+    setDealerCardsSum(0);
+    setIsDealAccepted(false);
+    setIsDoubleDownAvailable(true);
+    setIsUserTurnFinished(false);
+    setWinner('');
+    setRoundNumber(roundNumber + 1);
+    setUserCards(null);
+    setUserCardsSum(0);
+  }
+
   return (
     <main className={styles.main}>
-      {dealerCards && <PlayerCards cards={dealerCards} playerCardsSum={dealerCardsSum} />}
+      {dealerCards &&
+        <PlayerCards
+          cards={dealerCards}
+          playerCardsSum={dealerCardsSum}
+        />}
       <BackgroundText />
-      {winner === "dealer" && <ResultMessage winner="dealer" />}
-      {winner === "user" && <ResultMessage winner="user" />}
-      {winner === "draw" && <ResultMessage winner="draw" />}
-      {userCards && <PlayerCards cards={userCards} playerCardsSum={userCardsSum} />}
-      {bet !== 0 && <Bet getNewDeck={getNewDeck} />}
+      {winner === "dealer" &&
+        <ResultMessage
+          winner="dealer"
+          click={handleNextRound}
+        />}
+      {winner === "user" &&
+        <ResultMessage
+          winner="user"
+          click={handleNextRound}
+        />}
+      {winner === "draw" &&
+        <ResultMessage
+          winner="draw"
+          click={handleNextRound}
+        />}
+      {userCards &&
+        <PlayerCards
+          cards={userCards}
+          playerCardsSum={userCardsSum}
+        />}
+      {bet !== 0 &&
+        <Bet
+          getNewDeck={getNewDeck}
+        />}
     </main>
   );
 }
