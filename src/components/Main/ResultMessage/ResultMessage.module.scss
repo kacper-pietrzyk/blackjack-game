@@ -18,7 +18,7 @@
   align-items: center;
   margin-bottom: 10px;
   padding: 20px 70px;
-  background-color: rgba(0, 0, 0, .9);
+  background-color: $color-black;
   border-radius: 15px;
 
   &__header {
@@ -30,10 +30,10 @@
     }
   }
 
-  &__nextRound {
+  &__nextGame {
     padding: 10px 20px;
     color: $color-main-light;
-    background-color: rgba(0, 0, 0, .9);
+    background-color: $color-black;
     border: none;
     border-radius: 10px;
     font-family: $font-family-default;

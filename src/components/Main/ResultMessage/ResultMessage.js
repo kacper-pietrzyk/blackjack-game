@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ResultMessage.module.scss';
 
-const ResultMessage = ({ winner, click }) => {
+const ResultMessage = ({ credit, winner, click, roundNumber }) => {
 
   const userIsWinner = (
     <>
@@ -23,14 +23,23 @@ const ResultMessage = ({ winner, click }) => {
     </>
   )
 
+  const gameOver = (
+    <>
+      <h2 className={`${styles.result__header} ${styles.result__header_big}`}>Game over!</h2>
+      <h3 className={styles.result__header}>Your credit is ${credit}</h3>
+    </>
+  )
+
   return (
     <div className={styles.resultWrapper}>
       <div className={styles.result}>
+        {(credit === 0 || roundNumber === 5) && gameOver}
         {winner === "user" && userIsWinner}
         {winner === "dealer" && dealerIsWinner}
         {winner === "draw" && draw}
       </div>
-      <button className={styles.result__nextRound} onClick={click} >Next round</button>
+      {winner && <button className={styles.result__nextGame} onClick={click}>Next round</button>}
+      {(credit === 0 || (roundNumber === 5)) && <button className={styles.result__nextGame} onClick={click}>New game</button>}
     </div>
   );
 }
