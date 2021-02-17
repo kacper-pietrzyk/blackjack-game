@@ -8,12 +8,13 @@ import ResultMessage from './ResultMessage/ResultMessage';
 
 import { AppContext } from '../AppContext/AppContext';
 import { getCards } from '../Root/getCards';
+import { resetGame } from './resetGame';
 
 const Main = () => {
 
   const {
     bet, setBet,
-    setDeck,
+    deck, setDeck,
     dealerCards, setDealerCards,
     setIsDealAccepted,
     winner,
@@ -27,19 +28,23 @@ const Main = () => {
     dealerCardsSum, setDealerCardsSum } = useContext(AppContext);
 
   const getNewDeck = () => {
-    const newShuffledCardsUrl = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6';
-    fetch(newShuffledCardsUrl)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        }
-        throw Error(response.statusText);
-      })
-      .then(result => {
-        setDeck(result);
-        getInitialCards(result.deck_id)
-      })
-      .catch(err => console.log(`${err}: Failed to get cards from API`));
+    if (roundNumber === 1) {
+      const newShuffledCardsUrl = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6';
+      fetch(newShuffledCardsUrl)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json()
+          }
+          throw Error(response.statusText);
+        })
+        .then(result => {
+          setDeck(result);
+          getInitialCards(result.deck_id)
+        })
+        .catch(err => console.log(`${err}: Failed to get cards from API`));
+    } else {
+      getInitialCards(deck.deck_id)
+    }
   };
 
   const getInitialCards = deckId => {
@@ -50,7 +55,11 @@ const Main = () => {
   }
 
   const handleNextRound = () => {
-    setCredit(credit + 1.5 * bet)
+    if (winner === "user") {
+      setCredit(credit + 1.5 * bet)
+    } else if (winner === "draw") {
+      setCredit(credit + bet);
+    }
     setBet(0);
     setDealerCards(null);
     setDealerCardsSum(0);
@@ -63,6 +72,24 @@ const Main = () => {
     setUserCardsSum(0);
   }
 
+  const handleNewGame = () => {
+
+    resetGame(
+      setCredit,
+      setBet,
+      setDealerCards,
+      setDealerCardsSum,
+      setDeck,
+      setIsDealAccepted,
+      setIsDoubleDownAvailable,
+      setIsUserTurnFinished,
+      setWinner,
+      setRoundNumber,
+      setUserCards,
+      setUserCardsSum
+    )
+  }
+
   return (
     <main className={styles.main}>
       {dealerCards &&
@@ -71,17 +98,23 @@ const Main = () => {
           playerCardsSum={dealerCardsSum}
         />}
       <BackgroundText />
-      {winner === "dealer" &&
+      {((credit === 0 && winner === "dealer") || (roundNumber === 5 && winner)) &&
+        <ResultMessage
+          credit={credit}
+          click={handleNewGame}
+          roundNumber={roundNumber}
+        />}
+      {(winner === "dealer" && roundNumber < 5 && credit >= 5) &&
         <ResultMessage
           winner="dealer"
           click={handleNextRound}
         />}
-      {winner === "user" &&
+      {(winner === "user" && roundNumber < 5 && credit >= 5) &&
         <ResultMessage
           winner="user"
           click={handleNextRound}
         />}
-      {winner === "draw" &&
+      {(winner === "draw" && roundNumber < 5 && credit >= 5) &&
         <ResultMessage
           winner="draw"
           click={handleNextRound}
