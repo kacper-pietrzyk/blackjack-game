@@ -8,14 +8,11 @@ const Bet = ({ getNewDeck }) => {
   const {
     bet,
     isDealAccepted,
-    roundNumber,
     setIsDealAccepted } = useContext(AppContext);
 
   const handleDeal = () => {
     setIsDealAccepted(true);
-    if (roundNumber === 1) {
-      getNewDeck();
-    }
+    getNewDeck();
   }
 
   return (
