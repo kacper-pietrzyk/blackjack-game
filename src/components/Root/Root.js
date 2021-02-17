@@ -12,17 +12,15 @@ const Root = () => {
   const [bet, setBet] = useState(0);
   const [credit, setCredit] = useState(1000);
   const [dealerCards, setDealerCards] = useState();
-  const [dealerCardsSum, setDealerCardsSum] = useState();
+  const [dealerCardsSum, setDealerCardsSum] = useState(0);
   const [deck, setDeck] = useState();
   const [isDealAccepted, setIsDealAccepted] = useState(false);
   const [isDoubleDownAvailable, setIsDoubleDownAvailable] = useState(true);
   const [isUserTurnFinished, setIsUserTurnFinished] = useState(false);
-  // const [isUserWinner, setIsUserWinner] = useState(false);
-  // const [isDealerWinner, setIsDealerWinner] = useState(false);
   const [winner, setWinner] = useState('');
   const [roundNumber, setRoundNumber] = useState(1);
   const [userCards, setUserCards] = useState();
-  const [userCardsSum, setUserCardsSum] = useState();
+  const [userCardsSum, setUserCardsSum] = useState(0);
 
   const state = {
     bet, setBet,
@@ -34,7 +32,7 @@ const Root = () => {
     isDoubleDownAvailable, setIsDoubleDownAvailable,
     isUserTurnFinished, setIsUserTurnFinished,
     winner, setWinner,
-    roundNumber,
+    roundNumber, setRoundNumber,
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
   }

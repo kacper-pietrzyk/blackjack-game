@@ -23,42 +23,42 @@
     outline: none;
 
     &:hover {
-      cursor: pointer;
       transform: scale(1.1);
       font-weight: bold;
+      cursor: pointer;
     }
 
     &:nth-child(1) {
       border: 3px solid rgb(80, 80, 80);
-      box-shadow: 0 0 8px 4px hsl(115, 40%, 44%);
       background-color: hsl(115, 30%, 70%);
+      box-shadow: 0 0 8px 4px hsl(115, 40%, 44%);
 
       &:hover {
-        box-shadow: 0 0 8px 10px hsl(115, 40%, 44%);
         background-color: hsl(115, 40%, 70%);
+        box-shadow: 0 0 8px 10px hsl(115, 40%, 44%);
       }
     }
 
     &:nth-child(2) {
       border: 3px solid rgb(80, 80, 80);
-      box-shadow: 0 0 8px 4px hsl(0, 54%, 47%);
       background-color: hsl(0, 30%, 63%);
+      box-shadow: 0 0 8px 4px hsl(0, 54%, 47%);
 
       &:hover {
-        box-shadow: 0 0 15px 10px hsl(0, 54%, 47%);
         background-color: hsl(0, 40%, 63%);
+        box-shadow: 0 0 15px 10px hsl(0, 54%, 47%);
       }
     }
 
     &:nth-child(3) {
-      text-align: center;
       border: 3px solid rgb(80, 80, 80);
-      box-shadow: 0 0 8px 4px hsl(50, 76%, 48%);
       background-color: hsl(50, 42%, 56%);
+      box-shadow: 0 0 8px 4px hsl(50, 76%, 48%);
+      text-align: center;
 
       &:hover {
-        box-shadow: 0 0 15px 8px hsl(50, 76%, 48%);
         background-color: hsl(50, 50%, 56%);
+        box-shadow: 0 0 15px 8px hsl(50, 76%, 48%);
       }
     }
   }

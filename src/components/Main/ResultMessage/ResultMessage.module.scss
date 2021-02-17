@@ -16,10 +16,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, .9);
-  padding: 20px 70px;
-  border-radius: 15px;
   margin-bottom: 10px;
+  padding: 20px 70px;
+  background-color: rgba(0, 0, 0, .9);
+  border-radius: 15px;
 
   &__header {
     font-size: $font-size-l;
@@ -31,14 +31,14 @@
   }
 
   &__nextRound {
-    text-transform: uppercase;
     padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    font-size: $font-size-m;
-    font-family: $font-family-default;
-    background-color: rgba(0, 0, 0, .9);
     color: $color-main-light;
+    background-color: rgba(0, 0, 0, .9);
+    border: none;
+    border-radius: 10px;
+    font-family: $font-family-default;
+    font-size: $font-size-m;
+    text-transform: uppercase;
     transition: .3s;
     outline: none;
 
