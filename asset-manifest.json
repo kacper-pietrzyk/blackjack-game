@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/blackjack-game/static/css/main.a2b33d9a.chunk.css",
+    "main.js": "/blackjack-game/static/js/main.e432bd9c.chunk.js",
+    "main.js.map": "/blackjack-game/static/js/main.e432bd9c.chunk.js.map",
+    "runtime-main.js": "/blackjack-game/static/js/runtime-main.2e3ae997.js",
+    "runtime-main.js.map": "/blackjack-game/static/js/runtime-main.2e3ae997.js.map",
+    "static/js/2.795377cf.chunk.js": "/blackjack-game/static/js/2.795377cf.chunk.js",
+    "static/js/2.795377cf.chunk.js.map": "/blackjack-game/static/js/2.795377cf.chunk.js.map",
+    "static/js/3.2bb53d64.chunk.js": "/blackjack-game/static/js/3.2bb53d64.chunk.js",
+    "static/js/3.2bb53d64.chunk.js.map": "/blackjack-game/static/js/3.2bb53d64.chunk.js.map",
+    "index.html": "/blackjack-game/index.html",
+    "static/css/main.a2b33d9a.chunk.css.map": "/blackjack-game/static/css/main.a2b33d9a.chunk.css.map",
+    "static/js/2.795377cf.chunk.js.LICENSE.txt": "/blackjack-game/static/js/2.795377cf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e3ae997.js",
+    "static/js/2.795377cf.chunk.js",
+    "static/css/main.a2b33d9a.chunk.css",
+    "static/js/main.e432bd9c.chunk.js"
+  ]
+}
