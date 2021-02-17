@@ -4,13 +4,13 @@ import styles from './Header.module.scss';
 import Settings from './Settings/Settings';
 import { AppContext } from '../AppContext/AppContext';
 
-const Header = () => {
+const Header = ({ saveGame, loadGame }) => {
 
   const { roundNumber } = useContext(AppContext);
 
   return (
     <header className={styles.header}>
-      <Settings />
+      <Settings saveGame={saveGame} loadGame={loadGame} />
       <p className={`${styles.header__round} ${styles.noSelect}`}>Round {roundNumber}</p>
     </header>
   );
