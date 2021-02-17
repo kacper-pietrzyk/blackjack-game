@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ResultMessage.module.scss';
 
-const ResultMessage = ({ winner }) => {
+const ResultMessage = ({ winner, click }) => {
 
   const userIsWinner = (
     <>
@@ -30,7 +30,7 @@ const ResultMessage = ({ winner }) => {
         {winner === "dealer" && dealerIsWinner}
         {winner === "draw" && draw}
       </div>
-      <button className={styles.result__nextRound}>Next round</button>
+      <button className={styles.result__nextRound} onClick={click} >Next round</button>
     </div>
   );
 }
