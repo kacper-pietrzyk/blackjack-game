@@ -1,15 +1,15 @@
-export const resetGame = (setCredit, setBet, setDealerCards, setDealerCardsSum, setDeck, setIsDealAccepted, setIsDoubleDownAvailable, setIsUserTurnFinished, setWinner, setRoundNumber, setUserCards, setUserCardsSum) => {
+export const resetGame = (setCredit, setBet, setDealerCards, setDealerCardsSum, setDeck, setIsDealAccepted, setIsDoubleDownAvailable, setIsUserTurnFinished, setRoundNumber, setUserCards, setUserCardsSum, setWinner) => {
 
   setCredit(1000)
   setBet(0);
-  setDealerCards(null);
+  setDealerCards([]);
   setDealerCardsSum(0);
   setDeck()
   setIsDealAccepted(false);
   setIsDoubleDownAvailable(true);
   setIsUserTurnFinished(false);
-  setWinner('');
   setRoundNumber(1);
-  setUserCards(null);
+  setUserCards([]);
   setUserCardsSum(0);
+  setWinner('');
 }
