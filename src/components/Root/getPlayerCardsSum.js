@@ -14,12 +14,13 @@ export const getPlayerCardsSum = cards => {
   })
 
   const numberValues = allValues.filter(value => Number.isInteger(value));
-
   const aceValues = allValues.filter(value => value === "ACE");
 
-  const integerSum = numberValues.reduce((prevValue, value) => {
-    return prevValue + value;
-  })
+  let integerSum = 0;
+  for (let i = 0; i < numberValues.length; i++) {
+    integerSum += numberValues[i];
+  }
+
   let sum = integerSum;
   if (aceValues.length) {
     aceValues.forEach(() => {
@@ -30,6 +31,5 @@ export const getPlayerCardsSum = cards => {
       }
     })
   }
-
   return sum;
 }
