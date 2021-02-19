@@ -3,7 +3,7 @@ import styles from './Bet.module.scss';
 
 import { AppContext } from '../../AppContext/AppContext';
 
-const Bet = ({ getNewDeck }) => {
+const Bet = ({ startNewDeal }) => {
 
   const {
     bet,
@@ -12,7 +12,7 @@ const Bet = ({ getNewDeck }) => {
 
   const handleDeal = () => {
     setIsDealAccepted(true);
-    getNewDeck();
+    startNewDeal();
   }
 
   return (
