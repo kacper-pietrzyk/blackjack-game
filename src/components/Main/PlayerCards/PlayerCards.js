@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PlayerCards.module.scss';
 
-import CardPicture from '../CardPicture/CardPicture';
+import CardPicture from './CardPicture/CardPicture';
 
 const PlayerCards = ({ cards, playerCardsSum }) => {
 
