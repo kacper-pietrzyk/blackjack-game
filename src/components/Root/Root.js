@@ -11,18 +11,18 @@ const Root = () => {
 
   const [bet, setBet] = useState(0);
   const [credit, setCredit] = useState(1000);
-  const [dealerCards, setDealerCards] = useState();
+  const [dealerCards, setDealerCards] = useState([]);
   const [dealerCardsSum, setDealerCardsSum] = useState(0);
   const [deck, setDeck] = useState();
   const [isDealAccepted, setIsDealAccepted] = useState(false);
   const [isDoubleDownAvailable, setIsDoubleDownAvailable] = useState(true);
+  const [isLoadActive, setIsLoadActive] = useState(false);
+  const [isSaveActive, setIsSaveActive] = useState(false);
   const [isUserTurnFinished, setIsUserTurnFinished] = useState(false);
-  const [winner, setWinner] = useState('');
   const [roundNumber, setRoundNumber] = useState(1);
-  const [userCards, setUserCards] = useState();
+  const [userCards, setUserCards] = useState([]);
   const [userCardsSum, setUserCardsSum] = useState(0);
-  const [saveActive, setSaveActive] = useState(false);
-  const [loadActive, setLoadActive] = useState(false);
+  const [winner, setWinner] = useState('');
 
   const state = {
     bet, setBet,
@@ -32,29 +32,29 @@ const Root = () => {
     deck, setDeck,
     isDealAccepted, setIsDealAccepted,
     isDoubleDownAvailable, setIsDoubleDownAvailable,
+    isLoadActive,
+    isSaveActive,
     isUserTurnFinished, setIsUserTurnFinished,
-    winner, setWinner,
     roundNumber, setRoundNumber,
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
-    saveActive, loadActive
+    winner, setWinner
   }
 
   const handleSave = () => {
     localStorage.setItem("stateGame", JSON.stringify(state));
-    setSaveActive(true);
+    setIsSaveActive(true);
 
     setTimeout(() => {
-      setSaveActive(false);
+      setIsSaveActive(false);
     }, 1500);
   }
 
   const handleLoad = () => {
 
-
     const gameToLoad = JSON.parse(localStorage.getItem("stateGame"));
     if (gameToLoad) {
-      setLoadActive(true);
+      setIsLoadActive(true);
 
       setBet(gameToLoad.bet);
       setCredit(gameToLoad.credit);
@@ -64,13 +64,13 @@ const Root = () => {
       setIsDealAccepted(gameToLoad.isDealAccepted);
       setIsDoubleDownAvailable(gameToLoad.isDoubleDownAvailable);
       setIsUserTurnFinished(gameToLoad.isUserTurnFinished);
-      setWinner(gameToLoad.winner);
       setRoundNumber(gameToLoad.roundNumber);
       setUserCards(gameToLoad.userCards);
       setUserCardsSum(gameToLoad.userCardsSum);
+      setWinner(gameToLoad.winner);
 
       setTimeout(() => {
-        setLoadActive(false);
+        setIsLoadActive(false);
       }, 1500);
     }
   }
