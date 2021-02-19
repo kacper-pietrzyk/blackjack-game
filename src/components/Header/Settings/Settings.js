@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-
 import styles from './Settings.module.scss';
 
 import { AppContext } from '../../AppContext/AppContext';
@@ -11,44 +10,41 @@ import { faSave, faFolderOpen, faSyncAlt } from '@fortawesome/free-solid-svg-ico
 const Settings = ({ saveGame, loadGame }) => {
 
   const state = useContext(AppContext);
-  const { saveActive, loadActive } = useContext(AppContext);
 
-  const [resetActive, setResetActive] = useState(false);
+  const [isResetActive, setIsResetActive] = useState(false);
 
   const handleReset = () => {
 
     resetGame(
-      state.setCredit,
       state.setBet,
+      state.setCredit,
       state.setDealerCards,
       state.setDealerCardsSum,
       state.setDeck,
       state.setIsDealAccepted,
       state.setIsDoubleDownAvailable,
       state.setIsUserTurnFinished,
-      state.setWinner,
       state.setRoundNumber,
       state.setUserCards,
-      state.setUserCardsSum
+      state.setUserCardsSum,
+      state.setWinner
     )
 
-    setResetActive(true);
+    setIsResetActive(true);
 
     setTimeout(() => {
-      setResetActive(false);
+      setIsResetActive(false);
     }, 1500);
   }
-
-
 
   return (
     <div>
       <FontAwesomeIcon icon={faSave} className={styles.option} onClick={saveGame} title="Zapisz grę" />
       <FontAwesomeIcon icon={faFolderOpen} className={styles.option} onClick={loadGame} title="Wczytaj grę" />
       <FontAwesomeIcon icon={faSyncAlt} className={styles.option} onClick={handleReset} title="Zresetuj grę" />
-      {resetActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Reset...</h2></div>}
-      {saveActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Saving...</h2></div>}
-      {loadActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Loading...</h2></div>}
+      {state.isSaveActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Saving...</h2></div>}
+      {state.isLoadActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Loading...</h2></div>}
+      {isResetActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Reset...</h2></div>}
     </div>
   );
 }
