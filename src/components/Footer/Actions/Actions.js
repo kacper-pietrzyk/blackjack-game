@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styles from './Actions.module.scss';
 
 import { AppContext } from '../../AppContext/AppContext';
 import { getCards } from '../../Root/getCards';
+import { getPlayerCardsSum } from '../../Root/getPlayerCardsSum';
 
 const Actions = () => {
 
@@ -20,50 +21,82 @@ const Actions = () => {
     userCards, setUserCards,
     userCardsSum, setUserCardsSum } = useContext(AppContext);
 
-  const handleAction = e => {
+  let userIsDone = isUserTurnFinished;
+
+  const dealerTurn = async (userSum) => {
+    let dealerSum = dealerCardsSum;
+    const allDealerCards = dealerCards;
+
+    if (userSum > 21) {
+      const newDealerCard = await getCards(deck.deck_id, 1);
+      allDealerCards.push(...newDealerCard);
+      setDealerCards(allDealerCards);
+      dealerSum = getPlayerCardsSum(allDealerCards)
+      setDealerCardsSum(dealerSum);
+    } else {
+
+      while (dealerSum < 17) {
+        const newDealerCard = await getCards(deck.deck_id, 1);
+        allDealerCards.push(...newDealerCard);
+        setDealerCards(allDealerCards);
+        dealerSum = getPlayerCardsSum(allDealerCards)
+        setDealerCardsSum(dealerSum);
+      }
+    }
+    return dealerSum;
+  }
+
+  const userTurn = async (e) => {
     if (e.target.name === "Hit") {
-      getCards(deck.deck_id, 1, userCards, setUserCards, setUserCardsSum);
+      const newUserCard = await getCards(deck.deck_id, 1);
+      setUserCards([...userCards, ...newUserCard]);
+      const userSum = getPlayerCardsSum([...userCards, ...newUserCard]);
+      setUserCardsSum(userSum);
       setIsDoubleDownAvailable(false);
+      return userSum;
+
     } else if (e.target.name === "Stand") {
       setIsUserTurnFinished(true);
-      if (dealerCardsSum < 17) {
-        dealerTurn();
-      }
+      userIsDone = true;
+      const userSum = userCardsSum;
+      return userSum;
+
     } else if (e.target.name === "DoubleDown") {
-      getCards(deck.deck_id, 1, userCards, setUserCards, setUserCardsSum);
+      const newUserCard = await getCards(deck.deck_id, 1);
+      setUserCards([...userCards, ...newUserCard]);
+      const userSum = getPlayerCardsSum([...userCards, ...newUserCard]);
+      setUserCardsSum(userSum);
       setBet(bet * 2);
       setCredit(credit - bet);
       setIsUserTurnFinished(true);
-      if (dealerCardsSum < 17) {
-        dealerTurn();
-      }
-    }
-    if (isUserTurnFinished && dealerCardsSum < 17) {
-      dealerTurn();
+      userIsDone = true;
+      return userSum;
     }
   }
 
-  useEffect(() => {
+  const handleAction = async e => {
+    const userSum = await userTurn(e);
 
-    if (userCardsSum > 21) {
+    let dealerSum;
+    if (userSum > 21 || e.target.name === "Stand" || e.target.name === "DoubleDown") {
+      dealerSum = await dealerTurn(userSum);
+    }
+
+    if (userSum > 21) {
       setWinner("dealer");
       setIsUserTurnFinished(true);
+      userIsDone = true;
     }
-    else if (isUserTurnFinished) {
-      if (userCardsSum === dealerCardsSum) {
+    else if (userIsDone) {
+      if (userSum === dealerSum) {
         setWinner("draw");
-      } else if (userCardsSum <= 21 && userCardsSum > dealerCardsSum) {
+
+      } else if (userSum > dealerSum || dealerSum > 21) {
         setWinner("user");
+
       } else {
         setWinner("dealer");
       }
-    }
-
-  }, [dealerCardsSum, isUserTurnFinished, setIsUserTurnFinished, setWinner, userCardsSum]);
-
-  const dealerTurn = () => {
-    if (dealerCardsSum < 17) {
-      getCards(deck.deck_id, 1, dealerCards, setDealerCards, setDealerCardsSum);
     }
   }
 
@@ -79,7 +112,8 @@ const Actions = () => {
         </button>
           <button
             className={styles.actionsWrapper__action}
-            name="Stand" onClick={handleAction}>
+            name="Stand"
+            onClick={handleAction}>
             Stand
         </button>
           {(isDoubleDownAvailable && (credit >= bet)) &&
