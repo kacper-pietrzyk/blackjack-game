@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './ResultMessage.module.scss';
 
-const ResultMessage = ({ bet, credit, winner, newGame, roundNumber }) => {
+import { AppContext } from '../../AppContext/AppContext';
+
+const ResultMessage = ({ finalCredit, newGame }) => {
+
+  const { bet, roundNumber, winner } = useContext(AppContext);
 
   const userIsWinner = (
     <>
@@ -26,20 +30,20 @@ const ResultMessage = ({ bet, credit, winner, newGame, roundNumber }) => {
   const gameOver = (
     <>
       <h2 className={`${styles.result__header} ${styles.result__header_big}`}>Game over!</h2>
-      <h3 className={styles.result__header}>Your credit is ${credit}</h3>
+      <h3 className={styles.result__header}>Your final credit is ${finalCredit}</h3>
     </>
   )
 
   return (
     <div className={styles.resultWrapper}>
       <div className={styles.result}>
-        {(credit === 0 || roundNumber === 5) && gameOver}
         {winner === "user" && userIsWinner}
         {winner === "dealer" && dealerIsWinner}
         {winner === "draw" && draw}
+        {(finalCredit === 0 || roundNumber === 5) && gameOver}
       </div>
-      {winner && <button className={styles.result__nextGame} onClick={newGame}>Next round</button>}
-      {(credit === 0 || (roundNumber === 5)) && <button className={styles.result__nextGame} onClick={newGame}>New game</button>}
+      {(winner && roundNumber < 5 && finalCredit !== 0) && <button className={styles.result__nextGame} onClick={newGame}>Next round</button>}
+      {(finalCredit === 0 || (roundNumber === 5)) && <button className={styles.result__nextGame} onClick={newGame}>New game</button>}
     </div>
   );
 }
