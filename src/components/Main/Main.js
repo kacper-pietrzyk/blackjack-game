@@ -25,6 +25,7 @@ const Main = () => {
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
     setRoundNumber, roundNumber,
+    history, setHistory,
     winner, setWinner } = useContext(AppContext);
 
   const startNewDeal = () => {
@@ -63,7 +64,43 @@ const Main = () => {
     setDealerCardsSum(dealerSum);
   }
 
+  let finalCredit = 0;
+  switch (winner) {
+    case "user":
+      finalCredit = 1.5 * bet + credit;
+      break;
+    case "dealer":
+      finalCredit = credit;
+      break;
+    // default - if draw
+    default:
+      finalCredit = credit + bet;
+      break;
+  }
+
+  let profit = 0;
+  if (winner === "user") {
+    profit = 0.5 * bet;
+  } else if (winner === "dealer") {
+    profit = -bet;
+  } else {
+    profit = 0;
+  }
+
   const handleNextRound = () => {
+
+    setHistory({
+      bet: [...history.bet, bet],
+      credit: [...history.credit, finalCredit],
+      dealerCards: [...history.dealerCards, dealerCards],
+      dealerSum: [...history.dealerSum, dealerCardsSum],
+      userCards: [...history.userCards, userCards],
+      userSum: [...history.userSum, userCardsSum],
+      profit: [...history.profit, profit],
+      roundNumber: [...history.roundNumber, roundNumber],
+      winner: [...history.winner, winner],
+    })
+
     if (winner === "user") {
       setCredit(credit + 1.5 * bet)
     } else if (winner === "draw") {
@@ -84,8 +121,8 @@ const Main = () => {
   const handleNewGame = () => {
 
     resetGame(
-      setCredit,
       setBet,
+      setCredit,
       setDealerCards,
       setDealerCardsSum,
       setDeck,
@@ -93,6 +130,7 @@ const Main = () => {
       setIsDoubleDownAvailable,
       setIsUserTurnFinished,
       setRoundNumber,
+      setHistory,
       setUserCards,
       setUserCardsSum,
       setWinner
@@ -118,29 +156,25 @@ const Main = () => {
         />}
       {((credit === 0 && winner === "dealer") || (roundNumber === 5 && winner)) &&
         <ResultMessage
-          credit={credit}
+          finalCredit={finalCredit}
           newGame={handleNewGame}
-          roundNumber={roundNumber}
         />}
       {(winner === "dealer" && roundNumber < 5 && credit >= 5) &&
         <ResultMessage
-          bet={bet}
-          winner="dealer"
+          finalCredit={finalCredit}
           newGame={handleNextRound}
         />}
       {(winner === "user" && roundNumber < 5) &&
         <ResultMessage
-          bet={bet}
-          winner="user"
+          finalCredit={finalCredit}
           newGame={handleNextRound}
         />}
       {(winner === "draw" && roundNumber < 5) &&
         <ResultMessage
-          winner="draw"
+          finalCredit={finalCredit}
           newGame={handleNextRound}
         />}
     </main>
   );
 }
-
 export default Main;
