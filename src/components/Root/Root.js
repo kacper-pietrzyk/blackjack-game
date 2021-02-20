@@ -9,6 +9,18 @@ import { AppContext } from '../AppContext/AppContext';
 
 const Root = () => {
 
+  const roundHistory = {
+    bet: ["Bet"],
+    credit: ["Credit"],
+    dealerCards: ["Dealer cards"],
+    dealerSum: ["Dealer sum"],
+    userCards: ["Your cards"],
+    userSum: ["Your sum"],
+    profit: ["Profit/Loss"],
+    roundNumber: ["Round"],
+    winner: ["Winner"],
+  }
+
   const [bet, setBet] = useState(0);
   const [credit, setCredit] = useState(1000);
   const [dealerCards, setDealerCards] = useState([]);
@@ -20,6 +32,7 @@ const Root = () => {
   const [isSaveActive, setIsSaveActive] = useState(false);
   const [isUserTurnFinished, setIsUserTurnFinished] = useState(false);
   const [roundNumber, setRoundNumber] = useState(1);
+  const [history, setHistory] = useState(roundHistory);
   const [userCards, setUserCards] = useState([]);
   const [userCardsSum, setUserCardsSum] = useState(0);
   const [winner, setWinner] = useState('');
@@ -36,6 +49,7 @@ const Root = () => {
     isSaveActive,
     isUserTurnFinished, setIsUserTurnFinished,
     roundNumber, setRoundNumber,
+    history, setHistory,
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
     winner, setWinner
@@ -47,7 +61,7 @@ const Root = () => {
 
     setTimeout(() => {
       setIsSaveActive(false);
-    }, 1500);
+    }, 1000);
   }
 
   const handleLoad = () => {
@@ -65,13 +79,14 @@ const Root = () => {
       setIsDoubleDownAvailable(gameToLoad.isDoubleDownAvailable);
       setIsUserTurnFinished(gameToLoad.isUserTurnFinished);
       setRoundNumber(gameToLoad.roundNumber);
+      setHistory(gameToLoad.history);
       setUserCards(gameToLoad.userCards);
       setUserCardsSum(gameToLoad.userCardsSum);
       setWinner(gameToLoad.winner);
 
       setTimeout(() => {
         setIsLoadActive(false);
-      }, 1500);
+      }, 1000);
     }
   }
 
