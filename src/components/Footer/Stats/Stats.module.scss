@@ -1,0 +1,33 @@
+@import '../../variables';
+
+.stats {
+
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+
+  &__button {
+    padding: 8px 10px;
+    color: $color-main-light;
+    background-color: initial;
+    font-family: $font-family-default;
+    font-size: $font-size-m;
+    text-transform: uppercase;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+    transition: .3s;
+    outline: none;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-dark-hover;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
