@@ -6,14 +6,14 @@
   left: 50%;
   display: flex;
   flex-direction: column;
-  padding: 30px 50px;
+  padding: 20px 40px;
   transform: translate(-50%, -50%);
   background-color: rgb(20, 20, 20);
   border-radius: 20px;
 
   &__header {
     color: $color-main-light;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
     font-size: $font-size-xl;
     text-align: center;
     border-bottom: 3px solid $color-main-light;
@@ -23,12 +23,12 @@
     position: absolute;
     top: 4%;
     right: 2%;
-    padding: 0 8px;
+    padding: 0 5px;
     color: $color-black;
     background-color: rgb(200, 200, 200);
     border: none;
     border-radius: 6px;
-    font-size: $font-size-l;
+    font-size: $font-size-m;
     font-weight: 700;
     transition: transform .1s;
     outline: none;
@@ -51,8 +51,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 10px;
+    padding: 0 10px;
     list-style-type: none;
+    border-left: 1px solid rgba(255, 255, 255, .1);
+    border-right: 1px solid rgba(255, 255, 255, .1);
   }
 
   &__listItem {
