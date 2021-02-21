@@ -32,8 +32,8 @@ const Ranking = ({ handleShowRanking }) => {
         </li>
         {ranking.length ? ranking : (
           <div className={styles.ranking__empty}>
-            <h3>There is no record yet.</h3>
-            <h2>Your result can be first!</h2>
+            <h3 className={styles.ranking__emptyHeader}>There is no record yet.</h3>
+            <h2 className={styles.ranking__emptyHeader}>Your result can be first!</h2>
           </div>)
         }
       </ul>

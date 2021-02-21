@@ -85,18 +85,18 @@ const Settings = ({ saveGame, loadGame }) => {
         </>}
       {state.isSaveActive &&
         <div
-          className={styles.resetMessage}>
-          <h2 className={styles.resetMessage__text}>Saving...</h2>
+          className={styles.message}>
+          <h2 className={styles.message__text}>Saving...</h2>
         </div>}
       {state.isLoadActive &&
         <div
-          className={styles.resetMessage}>
-          <h2 className={styles.resetMessage__text}>Loading...</h2>
+          className={styles.message}>
+          <h2 className={styles.message__text}>Loading...</h2>
         </div>}
       {isResetActive &&
         <div
-          className={styles.resetMessage}>
-          <h2 className={styles.resetMessage__text}>Reset...</h2>
+          className={styles.message}>
+          <h2 className={styles.message__text}>Reset...</h2>
         </div>}
     </div>
   );

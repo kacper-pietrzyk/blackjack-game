@@ -13,7 +13,7 @@ const RoundHistory = ({ handleShowRoundHistory }) => {
   ));
 
   const userCards = history.userCards.map(cards => (
-    cards === "Your cards" ? <li className={styles.roundHistory__listItem} key="header">{cards}</li> :
+    cards === "Your cards" ? <li className={`${styles.roundHistory__listItem} ${styles.roundHistory__optionalDisplay}`} key="header">{cards}</li> :
       (<li className={`${styles.roundHistory__listItem} ${styles.roundHistory__listItem_cards}`} key={Math.random()}>
         {cards.map(card => (
           <div key={Math.random()} className={styles.roundHistory__cardsWrapper}>
@@ -28,7 +28,7 @@ const RoundHistory = ({ handleShowRoundHistory }) => {
   ));
 
   const dealerCards = history.dealerCards.map(cards => (
-    cards === "Dealer cards" ? <li className={styles.roundHistory__listItem} key="header">{cards}</li> :
+    cards === "Dealer cards" ? <li className={`${styles.roundHistory__listItem} ${styles.roundHistory__optionalDisplay}`} key="header">{cards}</li> :
       (<li className={`${styles.roundHistory__listItem} ${styles.roundHistory__listItem_cards}`} key={Math.random()}>
         {cards.map(card => (
           <div key={Math.random()} className={styles.roundHistory__cardsWrapper}>
@@ -47,15 +47,15 @@ const RoundHistory = ({ handleShowRoundHistory }) => {
   ));
 
   const bet = history.bet.map(value => (
-    <li className={styles.roundHistory__listItem} key={Math.random()}>{value}</li>
+    <li className={`${styles.roundHistory__listItem} ${styles.roundHistory__optionalDisplay}`} key={Math.random()}>{value}</li>
   ));
 
   const profit = history.profit.map(value => (
-    <li className={styles.roundHistory__listItem} key={Math.random()}>{value}</li>
+    <li className={`${styles.roundHistory__listItem} ${styles.roundHistory__optionalDisplay}`} key={Math.random()}>{value}</li>
   ));
 
   const credit = history.credit.map(value => (
-    <li className={styles.roundHistory__listItem} key={Math.random()}>{value}</li>
+    <li className={`${styles.roundHistory__listItem} ${styles.roundHistory__optionalDisplay}`} key={Math.random()}>{value}</li>
   ));
 
   return (
