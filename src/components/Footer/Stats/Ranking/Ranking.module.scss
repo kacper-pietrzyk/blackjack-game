@@ -1,13 +1,81 @@
 @import '../../../variables';
 
 .ranking {
-  padding: 8px;
-  transition: .3s;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(20, 20, 20);
+  border-radius: 20px;
 
-  &:hover {
-    color: $color-white;
-    background-color: $color-dark-hover;
-    border-radius: 5px;
-    cursor: pointer;
+  &__header {
+    color: $color-main-light;
+    margin: 10px 20px 20px;
+    font-size: $font-size-xl;
+    text-align: center;
+    border-bottom: 3px solid $color-main-light;
+  }
+
+  &__close {
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    padding: 0 5px;
+    color: $color-black;
+    background-color: rgb(200, 200, 200);
+    border: none;
+    border-radius: 6px;
+    font-size: $font-size-m;
+    font-weight: 700;
+    transition: transform .1s;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  }
+
+  &__listItem {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: start;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    justify-self: end;
+  }
+
+  &__dateHeader {
+    justify-self: end;
+    margin-right: 30px;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+    &:nth-child(2) {
+      text-align: center;
+    }
   }
 }
