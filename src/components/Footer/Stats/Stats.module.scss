@@ -4,7 +4,6 @@
 
   display: flex;
   flex-direction: column;
-  user-select: none;
 
   &__button {
     padding: 8px 10px;
@@ -39,5 +38,4 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, .6);
-
 }
