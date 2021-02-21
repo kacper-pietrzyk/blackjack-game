@@ -5,6 +5,7 @@
   align-self: flex-end;
   display: flex;
   align-items: center;
+  user-select: none;
 
   &__tokenWrapper {
     display: flex;
@@ -34,8 +35,33 @@
     font-weight: 700;
   }
 
+  &__cancel {
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: $color-main-light;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    border-radius: 4px;
+    font-family: $font-family-default;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    transition: .2s;
+    box-shadow: 0 0 15px 0 $color-dark;
+    outline: none;
+
+    &:hover {
+      color: $color-black;
+      background-color: rgb(150, 150, 150);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(.9);
+    }
+  }
+
   &__deal {
-    margin: 35px 0 0 50px;
     padding: 6px 30px;
     color: $color-main-light;
     background-color: rgb(20, 20, 20);
@@ -56,7 +82,7 @@
     }
 
     &:active {
-      transform: scale(1)
+      transform: scale(1);
     }
   }
 }
