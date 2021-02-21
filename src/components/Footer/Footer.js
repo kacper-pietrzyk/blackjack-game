@@ -18,7 +18,7 @@ const Footer = () => {
       <Stats />
       {!isDealAccepted && <Tokens />}
       {isDealAccepted && <Actions />}
-      <p>Credit: ${credit}</p>
+      <p className={styles.footer__credit}>Credit: ${credit}</p>
     </footer>
   );
 }
