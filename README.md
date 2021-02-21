@@ -1,19 +1,20 @@
 # Blackjack game
 ## Description
-Cards game 1-on-1 (player vs automated dealer) turn based blackjack game with 1000$ starting credit. 
-Game use 6 decks of cards which are getting from API. Cards are shuffled before the game begins. One game consist 5 rounds. The rules for blackjack can be read [here](https://pl.wikipedia.org/wiki/Blackjack).
+Cards game 1-on-1 (player vs automated dealer) turn based blackjack game. Starting credit is 1000$. 
+Game use 6 decks of cards which are getting from API. Cards are shuffled before the game begins. Each game consist of 5 rounds. After game the final credit is addded to ranking. The rules for blackjack can be read [here](https://pl.wikipedia.org/wiki/Blackjack).
 
 Each round starts with the player placing a bet and then the cards are dealt. During a round are available these actions:
 - Hit
 - Stand
 - Double Down
 
-If user won round - get 1.5x the bet, losing means the bet is gone.
+If user won round - get 1.5x the bet, losing means the bet is gone. Draw means no profit and no loss.
 
-Game can be saved and loaded at any time. Game can be also reset at any time.
+During the game the hands from every round and their result is saved and displayed in 'Round History'.
+The game can be saved, loaded and reset at any time. The game also saves (as autosave) when the tab or window is closed.
 
 ## Technologies
-* SCSS
+* SCSS (using BEM)
 * CSS (SCSS) Modules
 * React
 * React Hooks
