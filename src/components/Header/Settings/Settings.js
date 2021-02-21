@@ -76,12 +76,13 @@ const Settings = ({ saveGame, loadGame }) => {
         title="Info"
       />
       {showInfo &&
-        <div
-          className={styles.gamePause}>
-        </div>}
-      {showInfo &&
-        <Info
-          handleShowInfo={handleShowInfo} />}
+        <>
+          <div
+            className={styles.gamePause}>
+          </div>
+          <Info
+            handleShowInfo={handleShowInfo} />
+        </>}
       {state.isSaveActive &&
         <div
           className={styles.resetMessage}>

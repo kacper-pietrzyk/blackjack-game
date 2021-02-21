@@ -58,7 +58,6 @@ const RoundHistory = ({ handleShowRoundHistory }) => {
     <li className={styles.roundHistory__listItem} key={Math.random()}>{value}</li>
   ));
 
-
   return (
     <div className={styles.roundHistoryWrapper}>
       <h2 className={styles.roundHistoryWrapper__header}>Round history</h2>

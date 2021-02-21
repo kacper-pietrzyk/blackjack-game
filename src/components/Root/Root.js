@@ -26,13 +26,13 @@ const Root = () => {
   const [dealerCards, setDealerCards] = useState([]);
   const [dealerCardsSum, setDealerCardsSum] = useState(0);
   const [deck, setDeck] = useState();
+  const [history, setHistory] = useState(roundHistory);
   const [isDealAccepted, setIsDealAccepted] = useState(false);
   const [isDoubleDownAvailable, setIsDoubleDownAvailable] = useState(true);
   const [isLoadActive, setIsLoadActive] = useState(false);
   const [isSaveActive, setIsSaveActive] = useState(false);
   const [isUserTurnFinished, setIsUserTurnFinished] = useState(false);
   const [roundNumber, setRoundNumber] = useState(1);
-  const [history, setHistory] = useState(roundHistory);
   const [userCards, setUserCards] = useState([]);
   const [userCardsSum, setUserCardsSum] = useState(0);
   const [winner, setWinner] = useState('');
@@ -43,13 +43,13 @@ const Root = () => {
     dealerCards, setDealerCards,
     dealerCardsSum, setDealerCardsSum,
     deck, setDeck,
+    history, setHistory,
     isDealAccepted, setIsDealAccepted,
     isDoubleDownAvailable, setIsDoubleDownAvailable,
     isLoadActive,
     isSaveActive,
     isUserTurnFinished, setIsUserTurnFinished,
     roundNumber, setRoundNumber,
-    history, setHistory,
     userCards, setUserCards,
     userCardsSum, setUserCardsSum,
     winner, setWinner

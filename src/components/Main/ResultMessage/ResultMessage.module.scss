@@ -24,9 +24,10 @@
   &__header {
     font-size: $font-size-l;
     text-transform: uppercase;
+    text-align: center;
 
     &_big {
-      font-size: $font-size-xxl;
+      font-size: $font-size-xl;
     }
   }
 

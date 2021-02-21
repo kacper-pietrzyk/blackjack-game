@@ -111,11 +111,8 @@ const Main = () => {
     }
 
     const newRanking = [...currentRanking, newRankingData];
-
     const newSortedRanking = newRanking.sort((a, b) => b.finalCredit - a.finalCredit);
-
     newSortedRanking.splice(5);
-
     localStorage.setItem("ranking", JSON.stringify(newSortedRanking));
   }
 
@@ -180,7 +177,7 @@ const Main = () => {
           cards={dealerCards}
           playerCardsSum={dealerCardsSum}
         />}
-      <BackgroundText />
+      <BackgroundText bet={bet} />
       {userCards.length > 0 &&
         <PlayerCards
           cards={userCards}
