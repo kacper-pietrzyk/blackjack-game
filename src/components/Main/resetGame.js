@@ -7,7 +7,7 @@ export const resetGame = (setBet, setCredit, setDealerCards, setDealerCardsSum, 
     dealerSum: ["Dealer sum"],
     userCards: ["Your cards"],
     userSum: ["Your sum"],
-    profit: ["Profit/Loss"],
+    profit: ["Profit"],
     roundNumber: ["Round"],
     winner: ["Winner"],
   }
