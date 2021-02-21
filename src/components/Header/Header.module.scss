@@ -6,12 +6,20 @@
   align-items: center;
 
   &__round {
-    font-size: $font-size-l;
+    font-size: $font-size-m;
     text-transform: uppercase;
-    text-shadow: 3px 3px 10px $color-black;
+    text-shadow: 2px 2px 6px $color-black;
   }
 }
 
 .noSelect {
   user-select: none;
+}
+
+@media(min-width: 800px) {
+
+  .header__round {
+    font-size: $font-size-l;
+    text-shadow: 3px 3px 10px $color-black;
+  }
 }

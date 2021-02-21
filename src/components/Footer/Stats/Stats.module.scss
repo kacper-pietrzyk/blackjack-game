@@ -6,28 +6,16 @@
   flex-direction: column;
 
   &__button {
-    padding: 8px 10px;
+    padding: 4px 6px;
     color: $color-main-light;
     background-color: initial;
     font-family: $font-family-default;
-    font-size: $font-size-m;
+    font-size: $font-size-xs;
     text-transform: uppercase;
     text-align: left;
     border: none;
     border-radius: 5px;
-    transition: .3s;
     outline: none;
-
-    &:hover {
-      color: $color-white;
-      background-color: $color-dark-hover;
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
   }
 }
 
@@ -38,4 +26,34 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, .6);
+}
+
+@media(min-width:800px) {
+
+  .stats__button {
+    font-size: $font-size-s;
+  }
+}
+
+@media(min-width:1024px) {
+
+  .stats {
+
+    &__button {
+      padding: 8px 10px;
+      font-size: $font-size-m;
+      transition: .3s;
+
+      &:hover {
+        color: $color-white;
+        background-color: $color-dark-hover;
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
 }

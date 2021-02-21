@@ -6,17 +6,18 @@
   left: 50%;
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
+  width: 85vw;
+  padding: 5px 10px;
   transform: translate(-50%, -50%);
   background-color: rgb(20, 20, 20);
-  border-radius: 20px;
+  border-radius: 10px;
 
   &__header {
     color: $color-main-light;
-    margin: 10px 20px 20px;
-    font-size: $font-size-xl;
+    margin: 5px 20px 0;
+    font-size: $font-size-s;
     text-align: center;
-    border-bottom: 3px solid $color-main-light;
+    border-bottom: 2px solid $color-main-light;
   }
 
   &__close {
@@ -30,17 +31,7 @@
     border-radius: 6px;
     font-size: $font-size-m;
     font-weight: 700;
-    transition: transform .1s;
     outline: none;
-
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
   }
 
   &__list {
@@ -54,28 +45,97 @@
     grid-template-columns: repeat(3, 1fr);
     justify-items: start;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, .3);
+    font-size: $font-size-xs;
   }
 
   &__date {
-    font-size: $font-size-xs;
+    font-size: $font-size-xxs;
     justify-self: end;
   }
 
   &__dateHeader {
     justify-self: end;
-    margin-right: 30px;
+    margin-right: 15px;
   }
 
   &__empty {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 
     &:nth-child(2) {
       text-align: center;
+    }
+
+    &Header {
+      font-size: $font-size-s;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media(min-width: 800px) {
+
+  .ranking {
+    width: auto;
+    padding: 10px 30px;
+
+    &__header {
+      margin: 5px 20px 5px;
+      font-size: $font-size-m;
+    }
+  }
+}
+
+@media(min-width:1024px) {
+
+  .ranking {
+    width: auto;
+    padding: 20px 40px;
+    border-radius: 20px;
+
+    &__header {
+      margin: 10px 20px 20px;
+      font-size: $font-size-xl;
+      border-bottom: 3px solid $color-main-light;
+    }
+
+    &__close {
+      padding: 0 5px;
+      transition: transform .1s;
+
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+
+    &__listItem {
+      padding: 15px;
+      font-size: $font-size-m;
+    }
+
+    &__date {
+      font-size: $font-size-xs;
+    }
+
+    &__dateHeader {
+      margin-right: 30px;
+    }
+
+    &__empty {
+      margin-top: 20px;
+
+      &Header {
+        font-size: $font-size-l;
+      }
     }
   }
 }

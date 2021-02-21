@@ -1,11 +1,32 @@
 @import '../../../variables';
 
 .card {
-  flex-basis: 115px;
+  flex-basis: 65px;
   display: flex;
-  margin-left: 20px;
+  margin-left: 3px;
 
   &__img {
     width: 100%;
+  }
+}
+
+@media(max-height: 420px) {
+  .card {
+    flex-basis: 50px;
+  }
+}
+
+@media(min-width: 800px) {
+
+  .card {
+    margin-left: 5px;
+  }
+}
+
+@media(min-width: 1024px) {
+
+  .card {
+    flex-basis: 115px;
+    margin-left: 20px;
   }
 }

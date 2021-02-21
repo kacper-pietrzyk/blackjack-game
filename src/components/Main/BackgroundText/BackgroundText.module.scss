@@ -10,17 +10,57 @@
   text-transform: uppercase;
 
   &__text {
+    font-size: $font-size-s;
+    text-align: center;
     font-weight: 300;
+
+    &_big {
+      font-size: $font-size-m;
+    }
   }
 
   &__betInfo {
     color: $color-main-light;
-    font-size: $font-size-xxl;
-    margin-top: 150px;
-    text-shadow: 0 0 20px $color-black;
+    font-size: $font-size-m;
+    margin-top: 70px;
+    text-shadow: 0 0 10px $color-black;
   }
 }
 
 .noSelect {
   user-select: none;
+}
+
+@media(max-height: 420px) {
+
+  .backgroundTextWrapper__text {
+    display: none;
+  }
+}
+
+@media(min-width:800px) {
+
+  .backgroundTextWrapper__betInfo {
+    font-size: $font-size-l;
+    text-shadow: 0 0 20px $color-black;
+  }
+}
+
+@media(min-width:1024px) and (min-height: 720px) {
+
+  .backgroundTextWrapper {
+
+    &__text {
+      font-size: $font-size-m;
+
+      &_big {
+        font-size: $font-size-xl;
+      }
+    }
+
+    &__betInfo {
+      font-size: $font-size-xxl;
+      margin-top: 150px;
+    }
+  }
 }

@@ -6,17 +6,17 @@
   left: 50%;
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
+  padding: 5px 10px;
   transform: translate(-50%, -50%);
   background-color: rgb(20, 20, 20);
-  border-radius: 20px;
+  border-radius: 10px;
 
   &__header {
     color: $color-main-light;
-    margin: 10px 0 20px;
-    font-size: $font-size-xl;
+    margin: 6px 0 10px;
+    font-size: $font-size-m;
     text-align: center;
-    border-bottom: 3px solid $color-main-light;
+    border-bottom: 1px solid $color-main-light;
   }
 
   &__close {
@@ -30,17 +30,7 @@
     border-radius: 6px;
     font-size: $font-size-m;
     font-weight: 700;
-    transition: transform .1s;
     outline: none;
-
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
   }
 }
 
@@ -51,22 +41,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 4px;
     list-style-type: none;
-    border-left: 1px solid rgba(255, 255, 255, .1);
-    border-right: 1px solid rgba(255, 255, 255, .1);
   }
 
   &__listItem {
-    flex-basis: 100px;
+    flex-basis: 50px;
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
     text-align: center;
-    font-size: $font-size-s;
+    font-size: $font-size-xs;
 
     &_cards {
-      align-self: flex-start;
+      display: none;
     }
 
     &:nth-child(1) {
@@ -74,18 +62,73 @@
     }
   }
 
-  &__cardsWrapper {
-    width: 50px;
-    padding: 0 3px;
-    transition: transform .3s;
-
-    &:hover {
-      transform: scale(2.2);
-      cursor: pointer;
-    }
+  &__optionalDisplay {
+    display: none;
   }
 
   &__card {
     width: 100%;
+  }
+}
+
+@media(min-width:1024px) {
+
+  .roundHistoryWrapper {
+    padding: 20px 40px;
+    border-radius: 20px;
+
+    &__header {
+      margin: 10px 0 20px;
+      font-size: $font-size-xl;
+      border-bottom: 3px solid $color-main-light;
+    }
+
+    &__close {
+      transition: transform .1s;
+
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .roundHistory {
+
+    &__list {
+      padding: 0 10px;
+      border-left: 1px solid rgba(255, 255, 255, .1);
+      border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    &__listItem {
+      flex-basis: 100px;
+      padding: 10px 0;
+      font-size: $font-size-s;
+
+      &_cards {
+        display: flex;
+        align-self: flex-start;
+      }
+    }
+
+    &__optionalDisplay {
+      display: flex;
+    }
+
+    &__cardsWrapper {
+      width: 50px;
+      padding: 0 3px;
+      transition: transform .3s;
+
+      &:hover {
+        transform: scale(2.2);
+        cursor: pointer;
+      }
+    }
   }
 }

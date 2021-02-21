@@ -2,7 +2,7 @@
 
 .resultWrapper {
   position: fixed;
-  bottom: 5%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -11,42 +11,68 @@
 }
 
 .result {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 20px 70px;
+  margin-bottom: 5px;
+  padding: 10px 30px;
   background-color: $color-black;
-  border-radius: 15px;
+  border-radius: 8px;
 
   &__header {
-    font-size: $font-size-l;
+    font-size: $font-size-s;
     text-transform: uppercase;
     text-align: center;
 
     &_big {
-      font-size: $font-size-xl;
+      font-size: $font-size-m;
     }
   }
 
   &__nextGame {
-    padding: 10px 20px;
+    padding: 5px 10px;
     color: $color-main-light;
     background-color: $color-black;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
     font-family: $font-family-default;
-    font-size: $font-size-m;
+    font-size: $font-size-s;
     text-transform: uppercase;
-    transition: .3s;
     outline: none;
+  }
+}
 
-    &:hover {
-      color: $color-black;
-      background-color: $color-main-light;
-      cursor: pointer;
+@media(min-width:1024px) {
+
+  .resultWrapper {
+    bottom: 5%;
+  }
+
+  .result {
+    margin-bottom: 10px;
+    padding: 20px 70px;
+    border-radius: 15px;
+
+    &__header {
+      font-size: $font-size-l;
+
+      &_big {
+        font-size: $font-size-xl;
+      }
+    }
+
+    &__nextGame {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: $font-size-m;
+      transition: .3s;
+
+      &:hover {
+        color: $color-black;
+        background-color: $color-main-light;
+        cursor: pointer;
+      }
     }
   }
 }

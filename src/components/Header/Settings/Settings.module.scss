@@ -1,32 +1,25 @@
 @import '../../variables';
 
 .option {
-  margin-right: 20px;
-  font-size: $font-size-m;
-  transition: transform .2s;
-
-  &:hover {
-    color: $color-white;
-    transform: scale(1.15);
-    cursor: pointer;
-  }
+  margin-right: 16px;
+  font-size: $font-size-s;
 
   &:active {
     transform: scale(.9);
   }
 }
 
-.resetMessage {
+.message {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 40px 70px;
+  padding: 20px 30px;
   background-color: $color-black;
   border-radius: 10px;
 
   &__text {
-    font-size: $font-size-xl;
+    font-size: $font-size-m;
     color: $color-main-light;
   }
 }
@@ -38,4 +31,26 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, .6);
+}
+
+@media(min-width:1024px) {
+  .option {
+    margin-right: 20px;
+    font-size: $font-size-m;
+    transition: transform .2s;
+
+    &:hover {
+      color: $color-white;
+      transform: scale(1.15);
+      cursor: pointer;
+    }
+  }
+
+  .message {
+    padding: 40px 70px;
+
+    &__text {
+      font-size: $font-size-xl;
+    }
+  }
 }
