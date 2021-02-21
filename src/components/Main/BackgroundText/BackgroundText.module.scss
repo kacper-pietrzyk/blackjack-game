@@ -12,6 +12,13 @@
   &__text {
     font-weight: 300;
   }
+
+  &__betInfo {
+    color: $color-main-light;
+    font-size: $font-size-xxl;
+    margin-top: 150px;
+    text-shadow: 0 0 20px $color-black;
+  }
 }
 
 .noSelect {
