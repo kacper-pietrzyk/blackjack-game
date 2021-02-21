@@ -22,7 +22,7 @@ const Tokens = () => {
       {credit >= 25 && <button className={`${styles.tokensWrapper__token} ${styles.tokensWrapper__token_25}`} value={25} onClick={increaseBet}>$25</button>}
       {credit >= 100 && <button className={`${styles.tokensWrapper__token} ${styles.tokensWrapper__token_100}`} value={100} onClick={increaseBet}>$100</button>}
       {credit > 0 && <button className={`${styles.tokensWrapper__token} ${styles.tokensWrapper__token_allIn}`} value={credit} onClick={increaseBet}>All-in</button>}
-      {/* {credit === 0 && <h2 className={styles.tokensWrapper__allIn}>All-in</h2>} */}
+      {credit === 0 && <h2 className={styles.tokensWrapper__allIn}>All-in</h2>}
     </div>
   );
 }
