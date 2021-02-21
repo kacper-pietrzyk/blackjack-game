@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import styles from './Stats.module.scss';
 
 import Ranking from './Ranking/Ranking';
@@ -8,17 +7,17 @@ import RoundHistory from './RoundHistory/RoundHistory';
 const Stats = () => {
 
   const [showRoundHistory, setShowRoundHistory] = useState(false);
-  const [showRanking, setRanking] = useState(false);
+  const [showRanking, setShowRanking] = useState(false);
 
-  const handleRanking = e => {
+  const handleShowRanking = e => {
     if (e.target.name === "show") {
-      setRanking(true);
+      setShowRanking(true);
     } else {
-      setRanking(false);
+      setShowRanking(false);
     }
   }
 
-  const handleRoundHistory = e => {
+  const handleShowRoundHistory = e => {
     if (e.target.name === "show") {
       setShowRoundHistory(true);
     } else {
@@ -31,13 +30,13 @@ const Stats = () => {
       <button
         className={styles.stats__button}
         name="show"
-        onClick={handleRanking}>
+        onClick={handleShowRanking}>
         Ranking
       </button>
       <button
         className={styles.stats__button}
         name="show"
-        onClick={handleRoundHistory}>
+        onClick={handleShowRoundHistory}>
         Round History
       </button>
       {(showRanking || showRoundHistory) &&
@@ -46,10 +45,10 @@ const Stats = () => {
         </div>}
       {showRanking &&
         <Ranking
-          handleRanking={handleRanking} />}
+          handleShowRanking={handleShowRanking} />}
       {showRoundHistory &&
         <RoundHistory
-          handleRoundHistory={handleRoundHistory} />}
+          handleShowRoundHistory={handleShowRoundHistory} />}
     </div >
   );
 }
