@@ -34,11 +34,12 @@ const Bet = ({ startNewDeal }) => {
         <div className={styles.bet__token}>
           <p>${bet}</p>
         </div>
-        <button
-          className={styles.bet__cancel}
-          onClick={cancelBet}>
-          Cancel bet
-        </button>
+        {!isDealAccepted &&
+          <button
+            className={styles.bet__cancel}
+            onClick={cancelBet}>
+            Cancel bet
+        </button>}
       </div>
     </div>
   );
