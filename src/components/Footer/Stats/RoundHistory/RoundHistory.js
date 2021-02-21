@@ -3,7 +3,7 @@ import styles from './RoundHistory.module.scss';
 
 import { AppContext } from '../../../AppContext/AppContext';
 
-const RoundHistory = ({ handleRoundHistory }) => {
+const RoundHistory = ({ handleShowRoundHistory }) => {
 
   const { history } = useContext(AppContext);
 
@@ -62,7 +62,7 @@ const RoundHistory = ({ handleRoundHistory }) => {
   return (
     <div className={styles.roundHistoryWrapper}>
       <h2 className={styles.roundHistoryWrapper__header}>Round history</h2>
-      <button className={styles.roundHistoryWrapper__close} onClick={handleRoundHistory}>&times;</button>
+      <button className={styles.roundHistoryWrapper__close} onClick={handleShowRoundHistory}>&times;</button>
       <div className={styles.roundHistory}>
         <ul className={styles.roundHistory__list}>
           {roundNumber}
