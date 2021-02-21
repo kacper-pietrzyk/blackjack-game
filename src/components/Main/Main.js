@@ -87,6 +87,38 @@ const Main = () => {
     profit = 0;
   }
 
+  const updateRanking = () => {
+
+    let currentRanking = JSON.parse(localStorage.getItem("ranking"));
+    //currentRanking === null in first game - when there isn't currentRanking in localStorage
+    if (currentRanking === null) {
+      currentRanking = [];
+    }
+
+    const id = Math.floor(Math.random() * 100000)
+
+    const date = new Date().toLocaleDateString();
+    const time = new Date().toLocaleTimeString();
+    const fullDate = {
+      date,
+      time
+    }
+
+    const newRankingData = {
+      id,
+      finalCredit,
+      fullDate
+    }
+
+    const newRanking = [...currentRanking, newRankingData];
+
+    const newSortedRanking = newRanking.sort((a, b) => b.finalCredit - a.finalCredit);
+
+    newSortedRanking.splice(5);
+
+    localStorage.setItem("ranking", JSON.stringify(newSortedRanking));
+  }
+
   const handleNextRound = () => {
 
     setHistory({
@@ -119,6 +151,10 @@ const Main = () => {
   }
 
   const handleNewGame = () => {
+
+    if (roundNumber === 5 && finalCredit !== 0) {
+      updateRanking();
+    }
 
     resetGame(
       setBet,
