@@ -25,6 +25,7 @@ const Settings = ({ saveGame, loadGame }) => {
       state.setIsDoubleDownAvailable,
       state.setIsUserTurnFinished,
       state.setRoundNumber,
+      state.setHistory,
       state.setUserCards,
       state.setUserCardsSum,
       state.setWinner
@@ -34,14 +35,14 @@ const Settings = ({ saveGame, loadGame }) => {
 
     setTimeout(() => {
       setIsResetActive(false);
-    }, 1500);
+    }, 1000);
   }
 
   return (
     <div>
-      <FontAwesomeIcon icon={faSave} className={styles.option} onClick={saveGame} title="Zapisz grę" />
-      <FontAwesomeIcon icon={faFolderOpen} className={styles.option} onClick={loadGame} title="Wczytaj grę" />
-      <FontAwesomeIcon icon={faSyncAlt} className={styles.option} onClick={handleReset} title="Zresetuj grę" />
+      <FontAwesomeIcon icon={faSave} className={styles.option} onClick={saveGame} title="Save game" />
+      <FontAwesomeIcon icon={faFolderOpen} className={styles.option} onClick={loadGame} title="Load game" />
+      <FontAwesomeIcon icon={faSyncAlt} className={styles.option} onClick={handleReset} title="Reset" />
       {state.isSaveActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Saving...</h2></div>}
       {state.isLoadActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Loading...</h2></div>}
       {isResetActive && <div className={styles.resetMessage}><h2 className={styles.resetMessage__text}>Reset...</h2></div>}
