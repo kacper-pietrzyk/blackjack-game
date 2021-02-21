@@ -14,7 +14,7 @@ During the game the hands from every round and their result is saved and display
 The game can be saved, loaded and reset at any time. The game also saves (as autosave) when the tab or window is closed.
 
 ## Technologies
-* SCSS (using BEM)
+* SCSS (with BEM)
 * CSS (SCSS) Modules
 * React
 * React Hooks
