@@ -16,7 +16,7 @@ const Root = () => {
     dealerSum: ["Dealer sum"],
     userCards: ["Your cards"],
     userSum: ["Your sum"],
-    profit: ["Profit/Loss"],
+    profit: ["Profit"],
     roundNumber: ["Round"],
     winner: ["Winner"],
   }
@@ -56,7 +56,7 @@ const Root = () => {
   }
 
   const handleSave = () => {
-    localStorage.setItem("stateGame", JSON.stringify(state));
+    localStorage.setItem("my-game-save", JSON.stringify(state));
     setIsSaveActive(true);
 
     setTimeout(() => {
@@ -66,7 +66,9 @@ const Root = () => {
 
   const handleLoad = () => {
 
-    const gameToLoad = JSON.parse(localStorage.getItem("stateGame"));
+    const gameSave = prompt("If you want to load the game from your own earlier save, please leave 'my-game-save' text below and click 'OK'. If you want to load the game from autosave, please type 'autosave' below and click 'OK'", "my-game-save");
+
+    const gameToLoad = JSON.parse(localStorage.getItem(gameSave));
     if (gameToLoad) {
       setIsLoadActive(true);
 
@@ -89,6 +91,14 @@ const Root = () => {
       }, 1000);
     }
   }
+
+  const handleWarning = e => {
+    e.preventDefault();
+    localStorage.setItem("autosave", JSON.stringify(state));
+    e.returnValue = '';
+  }
+  // Firefox doesn't support this operation
+  window.addEventListener('beforeunload', handleWarning);
 
   return (
     <AppContext.Provider value={state} >
