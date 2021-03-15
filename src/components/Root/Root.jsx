@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Root.module.scss';
 
-import Footer from '../Footer/Footer';
+import Footer from '../Footer/Footer.jsx';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 
