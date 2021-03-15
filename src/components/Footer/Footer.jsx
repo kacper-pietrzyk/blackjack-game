@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styles from './Footer.module.scss';
 
-import Actions from './Actions/Actions';
-import Stats from './Stats/Stats';
-import Tokens from './Tokens/Tokens';
+import Actions from './Actions/Actions.jsx';
+import Stats from './Stats/Stats.jsx';
+import Tokens from './Tokens/Tokens.jsx';
 
 import { AppContext } from '../AppContext/AppContext';
 
