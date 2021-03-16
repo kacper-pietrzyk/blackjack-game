@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Root.module.scss';
 
 import Footer from '../Footer/Footer.jsx';
-import Header from '../Header/Header';
+import Header from '../Header/Header.jsx';
 import Main from '../Main/Main';
 
 import { AppContext } from '../AppContext/AppContext';
