@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styles from './Settings.module.scss';
 
-import Info from './Info/Info';
+import Info from './Info/Info.jsx';
 
 import { AppContext } from '../../AppContext/AppContext';
 import { resetGame } from '../../Main/resetGame';

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styles from './Header.module.scss';
 
-import Settings from './Settings/Settings';
+import Settings from './Settings/Settings.jsx';
 import { AppContext } from '../AppContext/AppContext';
 
 const Header = ({ saveGame, loadGame }) => {
